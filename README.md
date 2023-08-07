@@ -14,7 +14,7 @@
 
 ## 💡 About the project
 
-	get_next_line is a function that reads an entire line from a file indexed by a file descriptor fd. It then alocates a string with the contents of that line without the linebreak '\n' and points line to it.
+	Reads file, allocates line without linebreak.
 
 We don't have to pass anything allocated to get_next_line, we just pass the address of a pointer that will point to the allocated string. line should be freeable with free() after the function call unless an error occured.
 
