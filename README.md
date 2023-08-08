@@ -14,13 +14,9 @@
 
 ## 💡 About the project
 
-	Reads file, allocates line without linebreak.
+	
 
-We don't have to pass anything allocated to get_next_line, we just pass the address of a pointer that will point to the allocated string. line should be freeable with free() after the function call unless an error occured.
-
-We will incrementally read the file with read(), which advances its position in the file dexample escriptor automatically.
-
-We need to use a static pointer as a read buffer to access what was read in previous calls.
+The get_next_line function in C serves the fundamental purpose of reading and processing a text file or input stream line by line. It's particularly useful for scenarios where you need to extract information or perform operations on each line of a file without loading the entire file into memory at once.
 
 We need to handle the following situations:
 
@@ -35,7 +31,7 @@ We need to handle the following situations:
 
 ### Requirements
 
-The function is written in C language and thus needs the **`gcc` compiler** and some standard **C libraries** to run.
+The function is written in C language, compiles with **`gcc`**, and uses some standard **C libraries** to run.
 
 ### Instructions
 
@@ -47,7 +43,7 @@ To use the function in your code, simply include its header:
 #include "get_next_line.h"
 ```
 
-and, when compiling your code, add the source files and the required flag:
+While compiling, add the source files and required flags:
 
 ```shell
 get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=<size>
