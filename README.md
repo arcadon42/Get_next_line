@@ -16,7 +16,7 @@
 
 The get_next_line function in C serves the fundamental purpose of reading and processing a text file or input stream line by line. It's particularly useful for scenarios where you need to extract information or perform operations on each line of a file without loading the entire file into memory at once.
 
-We need to handle the following situations:
+We have to handle the following situations:
 
     1. Reading and Concatenating Buffers: If the current read buffer from the file doesn't have a newline character ('\n'), you concatenate its contents with the previous buffer content. This step ensures that a line that spans multiple buffers is correctly handled.
     2. Processing Lines: If the read buffer contains a newline character ('\n'), you concatenate the buffer content up to the newline character with the previous buffer content. This creates a complete line that can be returned.
