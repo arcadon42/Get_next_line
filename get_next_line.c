@@ -6,7 +6,7 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:47:30 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/07 10:55:52 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:01:21 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ char	*get_next_line(int fd)
 
 //#include <stdio.h>
 //#include <fcntl.h>
+//
 // int	main(void)
 // {
 // 	char	*line;
@@ -89,9 +90,9 @@ char	*get_next_line(int fd)
 // 	int		fd1;
 // 	int		fd2;
 // 	int		fd3;
-// 	fd1 = open("tests/test.txt", O_RDONLY);
-// 	fd2 = open("tests/test2.txt", O_RDONLY);
-// 	fd3 = open("tests/test3.txt", O_RDONLY);
+// 	fd1 = open("test_txt/test1.txt", O_RDONLY);
+// 	fd2 = open("test_txt/test2.txt", O_RDONLY);
+// 	fd3 = open("test_txt/test3.txt", O_RDONLY);
 // 	i = 1;
 // 	while (i < 7)
 // 	{

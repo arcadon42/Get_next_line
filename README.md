@@ -14,17 +14,16 @@
 
 ## 💡 About the project
 
-	
-
 The get_next_line function in C serves the fundamental purpose of reading and processing a text file or input stream line by line. It's particularly useful for scenarios where you need to extract information or perform operations on each line of a file without loading the entire file into memory at once.
 
 We need to handle the following situations:
 
-    If the read buffer doesn't have a '\n', we concatenate with the previous buffer and call read again.
-    If the read buffer has a '\n', we concatenate with the previous buffer up to '\n'.
-    If we reach the end of the file (read() == 0), we concatenate with the previous buffer.
-    We finally point line to an allocated string that contains the entire line without the '\n'. Then we release the memory allocated in the intermediate strings and return 1 or 0 for '\n' and end_of_file respectively.
-    If the parameters have any problems (BUFFER_SIZE <= 0), or if in any operation we were unable to allocate memory, we free whatever memory was allocated and return -1.
+    1. Reading and Concatenating Buffers: If the current read buffer from the file doesn't have a newline character ('\n'), you concatenate its contents with the previous buffer content. This step ensures that a line that spans multiple buffers is correctly handled.
+    2. Processing Lines: If the read buffer contains a newline character ('\n'), you concatenate the buffer content up to the newline character with the previous buffer content. This creates a complete line that can be returned.
+    3. End of File Handling: When you reach the end of the file (i.e., the read() function returns 0), you concatenate the buffer content with the previous buffer content. This is important to capture any remaining data that didn't end with a newline character.
+    4. Allocating and Returning Line: After processing and concatenating the buffers, you allocate memory for a new string that contains the entire line without the newline character. This is the string that the function will return.
+	5. Memory Management: You mentioned that you release the memory allocated for intermediate buffers and return values accordingly: 1 if a newline was found, 0 for end of file, and -1 for any error or invalid parameter conditions.
+    6. Error Handling: You've also noted that if there are issues with parameters (like BUFFER_SIZE being <= 0) or if memory allocation fails at any point, you free the allocated memory and return -1 to indicate an error.
 
 
 ## 🛠️ Usage
@@ -51,7 +50,7 @@ get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=<size>
 
 ## 📋 Test
 
-You only have to edit the get_next_line.c file and uncomment the main function and headers inside it.
+You just have to edit the get_next_line.c file and uncomment the main function and headers inside it.
 You can edit test.txt files to put another text if you wish to test othe cases.
 Then simply run this command (change "xx" with desired buffer size) :
 
