@@ -27,7 +27,7 @@ We have to handle the following situations:
     the buffer content with the previous buffer content. This is important to capture any remaining data that didn't
     end with a newline character.
     4. Allocating and Returning Line: After processing and concatenating the buffers, you allocate memory for a new
-    string that contains the entire line without the newline character. This is the string that the function will return.
+    string that contains the entire line without a newline character. This is the string that the function will return.
     5. Memory Management: You mentioned that you release the memory allocated for intermediate buffers and return values
     accordingly:1 if a newline was found, 0 for end of file, and -1 for any error or invalid parameter conditions.
     6. Error Handling: You've also noted that if there are issues with parameters (like BUFFER_SIZE being <= 0) or if
