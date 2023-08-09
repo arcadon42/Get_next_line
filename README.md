@@ -34,7 +34,7 @@ We have to handle the following situations:
     memory allocation fails at any point, you free the allocated memory and return -1 to indicate an error.
 
 
-## 🛠️ Usage
+## 🛠️ Use
 
 ### Requirements
 
