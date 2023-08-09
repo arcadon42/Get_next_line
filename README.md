@@ -34,9 +34,9 @@ The function is written in C language, compiles with **`gcc`**, and uses some st
 
 ### Instructions
 
-**1. Using it in your code**
+**1. Implementation**
 
-To use the function in your code, simply include its header:
+To use the function with your code, simply include its header:
 
 ```C
 #include "get_next_line.h"
@@ -51,8 +51,8 @@ get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=<size>
 ## 📋 Test
 
 You just have to edit the get_next_line.c file and uncomment the main function and headers inside it.
-You can edit test.txt files to put another text if you wish to test othe cases.
-Then simply run this command (change "xx" with desired buffer size) :
+You can edit the text in the test.txt files if you wish to test other cases.
+Then simply run the command below (change "xx" with desired buffer size):
 
 ```shell
 gcc -Wall -Werror -Wextra -D BUFFER_SIZE=xx get_next_line.c get_next_line_utils.c && ./a.out
