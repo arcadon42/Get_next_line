@@ -14,7 +14,7 @@
 
 ## 💡 About the project
 
-The get_next_line function in C serves the fundamental purpose of reading and processing a text file or input stream line by line. It's particularly useful for scenarios where you need to extract information or perform operations on each line of a file without loading the entire file into memory at once.
+The get_next_line function in C serves the fundamental purpose of reading and processing a text file or input stream, line by line. It's particularly useful for scenarios where you need to extract information or perform operations on each line of a file without loading the entire file into memory at once.
 
 We have to handle the following situations:
 
@@ -66,6 +66,8 @@ Then simply run the command below (change "xx" with desired buffer size):
 gcc -Wall -Werror -Wextra -D BUFFER_SIZE=xx get_next_line.c get_next_line_utils.c && ./a.out
 ```
 
-Or you can also use this third party tester to fully test the project
+You can also use this third party tester to fully test project. 
+Clone the tester directory (/get_next_line/gnlTester %).
+Than run 'make' (gnlTester % make)
 
 * [Tripouille/gnlTester](https://github.com/Tripouille/gnlTester)

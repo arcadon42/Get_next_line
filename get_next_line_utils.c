@@ -6,7 +6,7 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:56:08 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/07 10:57:38 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/09 19:42:09 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,20 @@
 // Extracts the line (ending in either line break and `\0` or only `\0` in EOF)
 // from static variable.
 // PARAMETERS
-// #1. The pointer to the cumulative static variable from previous runs of get_next_line.
+// Pointer to a *CSV from previous runs of get_next_line.
 // RETURN VALUES
 // The string with the full line ending in a line break (`\n`) + (`\0`).
 // -------------
 // NEW_LEFT_STR
 // -------------
-// Stores in the cumulative static variable the new updated variable with whatever
-// is left from the original, minus the line extracted.
+// Stores in the *CSV the new updated variable with 
+// whatever is left from the original, minus the line extracted.
 // PARAMETERS
-// #1. The pointer to the cumulative static variable from previous runs of get_next_line.
+// Pointer to the CSV from previous runs of get_next_line.
 // RETURN VALUES
-// The new updated string with whatever is left from the original static, minus the
-// line extracted.
+// The new updated string with whatever is left from the original static, minus
+// the extracted line.
+// *CSV - Cumulative Static Variable
 
 #include "get_next_line.h"
 

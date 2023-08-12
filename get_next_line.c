@@ -6,7 +6,7 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:47:30 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/08 17:01:21 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/12 16:09:55 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 // #2. The pointer to the cumulative static variable from previous runs of
 // get_next_line.
 // RETURN VALUES
-// The new static variable value with buffer joined for the persistence of the info,
-// or NULL if error.
+// The new static variable value with buffer joined for the persistence of the 
+// info, or NULL if error.
 
 #include "get_next_line.h"
 #include <unistd.h>
@@ -80,9 +80,9 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-//#include <stdio.h>
-//#include <fcntl.h>
-//
+// #include <stdio.h>
+// #include <fcntl.h>
+
 // int	main(void)
 // {
 // 	char	*line;
