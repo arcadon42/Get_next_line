@@ -58,15 +58,15 @@ get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=<size>
 
 ## 📋 Test
 
-You just have to edit the get_next_line.c file and uncomment the main function and headers inside it.
-You can edit the text in the test.txt files if you wish to test other cases.
-Then simply run the command below (change "xx" with desired buffer size):
+Just uncomment the main function with its headers inside the get_next_line.c file.
+You can edit the text in the test.txt files to test other cases.
+Then run the command below (change "xx" with desired buffer size):
 
 ```shell
 gcc -Wall -Werror -Wextra -D BUFFER_SIZE=xx get_next_line.c get_next_line_utils.c && ./a.out
 ```
 
-You can also use this third party tester to fully test project. 
+You can also use third party tester to fully test project. 
 Clone the tester directory(/get_next_line/gnlTester %).
 Than run 'make' (gnlTester % make)
 
