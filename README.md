@@ -67,7 +67,7 @@ gcc -Wall -Werror -Wextra -D BUFFER_SIZE=xx get_next_line.c get_next_line_utils.
 ```
 
 You can also use this third party tester to fully test project. 
-Clone the tester directory (/get_next_line/gnlTester %).
+Clone the tester directory(/get_next_line/gnlTester %).
 Than run 'make' (gnlTester % make)
 
 * [Tripouille/gnlTester](https://github.com/Tripouille/gnlTester)
