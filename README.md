@@ -66,8 +66,8 @@ Then run the command below (change "xx" with desired buffer size):
 gcc -Wall -Werror -Wextra -D BUFFER_SIZE=xx get_next_line.c get_next_line_utils.c && ./a.out
 ```
 
-You can also use third party tester to fully test project.
-Clone the tester directory(/get_next_line/gnlTester %).
+You can also use third party tester to fully test project
+Clone the tester directory(/get_next_line/gnlTester %)
 Than run 'make' (/gnlTester % make)
 
 * [Tripouille/gnlTester](https://github.com/Tripouille/gnlTester)
