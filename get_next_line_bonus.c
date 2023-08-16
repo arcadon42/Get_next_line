@@ -6,7 +6,7 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 22:06:49 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/09 19:10:15 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/16 20:24:06 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // ----------------------------------------------------------------------------
 // AUXILIARY FUNCTIONS
 // -------------------
-// READ_TO_LEFT_STR
+// READ_TO_rest
 // -----------------
 // DESCRIPTION
 // Takes the opened file descriptor and saves on a "buff" variable what readed
@@ -43,7 +43,7 @@
 //#include <stdio.h>
 //#include <fcntl.h>
 
-char	*ft_read_to_left_str(int fd, char *left_str)
+char	*ft_read_to_rest(int fd, char *rest)
 {
 	char	*buff;
 	int		rd_bytes;
@@ -52,7 +52,7 @@ char	*ft_read_to_left_str(int fd, char *left_str)
 	if (!buff)
 		return (NULL);
 	rd_bytes = 1;
-	while (!ft_strchr(left_str, '\n') && rd_bytes != 0)
+	while (!ft_strchr(rest, '\n') && rd_bytes != 0)
 	{
 		rd_bytes = read(fd, buff, BUFFER_SIZE);
 		if (rd_bytes == -1)
@@ -61,24 +61,24 @@ char	*ft_read_to_left_str(int fd, char *left_str)
 			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
-		left_str = ft_strjoin(left_str, buff);
+		rest = ft_strjoin(rest, buff);
 	}
 	free(buff);
-	return (left_str);
+	return (rest);
 }
 
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*left_str[4096];
+	static char	*rest[4096];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	left_str[fd] = ft_read_to_left_str(fd, left_str[fd]);
-	if (!left_str[fd])
+	rest[fd] = ft_read_to_rest(fd, rest[fd]);
+	if (!rest[fd])
 		return (NULL);
-	line = ft_get_line(left_str[fd]);
-	left_str[fd] = ft_new_left_str(left_str[fd]);
+	line = ft_get_line(rest[fd]);
+	rest[fd] = ft_new_rest(rest[fd]);
 	return (line);
 }
 

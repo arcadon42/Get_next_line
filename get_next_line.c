@@ -6,42 +6,15 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:47:30 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/12 16:09:55 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/16 20:28:03 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// GET_NEXT_LINE
-// -------------
-// DESCRIPTION
-// This function takes an opened file descriptor and returns its next line.
-// This function has undefined behavior when reading from a binary file.
-// PARAMETERS
-// #1. A file descriptor 
-// RETURN VALUES
-// If successful, get_next_line returns a string with the full line ending in
-// a line break (`\n`) when there is one. 
-// If an error occurs, or there's nothing more to read, it returns NULL.
-// ----------------------------------------------------------------------------
-// AUXILIARY FUNCTIONS
-// -------------------
-// READ_TO_LEFT_STR
-// -----------------
-// DESCRIPTION
-// Takes the opened file descriptor and saves on a "buff" variable what readed
-// from it. Then joins it to the cumulative static variable for the persistence
-// of the information.
-// PARAMETERS
-// #1. A file descriptor.
-// #2. The pointer to the cumulative static variable from previous runs of
-// get_next_line.
-// RETURN VALUES
-// The new static variable value with buffer joined for the persistence of the 
-// info, or NULL if error.
-
 #include "get_next_line.h"
-#include <unistd.h>
 
-char	*ft_read_to_left_str(int fd, char *left_str)
+// Reads from an open fd and appends the content to the rest(restder from the
+// previous read). 
+char	*ft_read_to_rest(int fd, char *rest)
 {
 	char	*buff;
 	int		rd_bytes;
@@ -50,7 +23,7 @@ char	*ft_read_to_left_str(int fd, char *left_str)
 	if (!buff)
 		return (NULL);
 	rd_bytes = 1;
-	while (!ft_strchr(left_str, '\n') && rd_bytes != 0)
+	while (!ft_strchr(rest, '\n') && rd_bytes != 0)
 	{
 		rd_bytes = read(fd, buff, BUFFER_SIZE);
 		if (rd_bytes == -1)
@@ -59,56 +32,67 @@ char	*ft_read_to_left_str(int fd, char *left_str)
 			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
-		left_str = ft_strjoin(left_str, buff);
+		rest = ft_strjoin(rest, buff);
 	}
 	free(buff);
-	return (left_str);
+	return (rest);
 }
 
+// Takes int fd representing the descriptor of the file from which the lines
+// will be read. Returns a pointer to a character array(string) containing the
+// next line read from the file, or NULL if the end of the file is reached or an
+// error occurs.
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*left_str;
+	static char	*rest;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	left_str = ft_read_to_left_str(fd, left_str);
-	if (!left_str)
+	rest = ft_read_to_rest(fd, rest);
+	if (!rest)
 		return (NULL);
-	line = ft_get_line(left_str);
-	left_str = ft_new_left_str(left_str);
+	line = ft_get_line(rest);
+	rest = ft_new_rest(rest);
 	return (line);
 }
 
-// #include <stdio.h>
 // #include <fcntl.h>
 
-// int	main(void)
+// int main(void)
 // {
-// 	char	*line;
-// 	int		i;
-// 	int		fd1;
-// 	int		fd2;
-// 	int		fd3;
-// 	fd1 = open("test_txt/test1.txt", O_RDONLY);
-// 	fd2 = open("test_txt/test2.txt", O_RDONLY);
-// 	fd3 = open("test_txt/test3.txt", O_RDONLY);
-// 	i = 1;
-// 	while (i < 7)
-// 	{
-// 		line = get_next_line(fd1);
-// 		printf("line [%02d]: %s", i, line);
-// 		free(line);
-// 		line = get_next_line(fd2);
-// 		printf("line [%02d]: %s", i, line);
-// 		free(line);
-// 		line = get_next_line(fd3);
-// 		printf("line [%02d]: %s", i, line);
-// 		free(line);
-// 		i++;
-// 	}
-// 	close(fd1);
-// 	close(fd2);
-// 	close(fd3);
-// 	return (0);
+//     char *line;
+//     int fd1;
+//     int fd2;
+//     int fd3;
+//     int i = 1;
+
+//     fd1 = open("test_txt/test1.txt", O_RDONLY);
+//     fd2 = open("test_txt/test2.txt", O_RDONLY);
+//     fd3 = open("test_txt/test3.txt", O_RDONLY);
+
+//     while (i < 10)
+//     {
+// 		printf("\n");
+				
+//         line = get_next_line(fd1);
+//         printf("line [%02d] (fd1): %s", i, line);
+//         free(line);
+
+//         line = get_next_line(fd2);
+//         printf("line [%02d] (fd2): %s", i, line);
+//         free(line);
+
+//         line = get_next_line(fd3);
+//         printf("line [%02d] (fd3): %s\n\n", i, line);
+//         free(line);
+
+//         i++;
+//     }
+
+//     close(fd1);
+//     close(fd2);
+//     close(fd3);
+
+//     return (0);
 // }

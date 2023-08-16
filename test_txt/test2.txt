@@ -1,5 +1,5 @@
-Vamos a chequear errores
-Otra linea mas
+A B C D E F G H I J 
+ABCDEFGHIJ 
 
-Tras una linea vacia
-Ultima linea
+AFTER_EMPTY_LINE
+LAST_LINE
