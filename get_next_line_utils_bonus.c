@@ -6,7 +6,7 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 12:04:07 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/16 20:25:31 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/17 19:21:19 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*ft_strjoin(char *rest, char *buff)
 
 	if (!rest)
 	{
-		rest = (char *)malloc(1 * sizeof(char));
+		rest = (char *) malloc(1 * sizeof (char));
 		rest[0] = '\0';
 	}
 	if (!rest || !buff)

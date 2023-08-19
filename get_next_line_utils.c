@@ -6,56 +6,37 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:56:08 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/16 20:26:13 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/19 18:57:39 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// GET_LINE
-// Extracts the line (ending in either line break and `\0` or only `\0` in EOF)
-// from static variable.
-// PARAMETERS
-// Pointer to a *CSV from previous runs of get_next_line.
-// RETURN VALUES
-// The string with the full line ending in a line break (`\n`) + (`\0`).
-// -------------
-// NEW_rest
-// -------------
-// Stores in the *CSV the new updated variable with 
-// whatever is left from the original, minus the line extracted.
-// PARAMETERS
-// Pointer to the CSV from previous runs of get_next_line.
-// RETURN VALUES
-// The new updated string with whatever is left from the original static, minus
-// the extracted line.
-// *CSV - Cumulative Static Variable
-
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
 	i = 0;
-	if (!s)
+	if (!str)
 		return (0);
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(char *str, int c)
 {
 	int	i;
 
 	i = 0;
-	if (!s)
+	if (!str)
 		return (0);
 	if (c == '\0')
-		return ((char *)&s[ft_strlen(s)]);
-	while (s[i] != '\0')
+		return ((char *)&str[ft_strlen(str)]);
+	while (str[i] != '\0')
 	{
-		if (s[i] == (char) c)
-			return ((char *)&s[i]);
+		if (str[i] == (char) c)
+			return ((char *)&str[i]);
 		i++;
 	}
 	return (0);

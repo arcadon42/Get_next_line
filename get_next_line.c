@@ -6,14 +6,15 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:47:30 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/16 20:28:03 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:54:41 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// Reads from an open fd and appends the content to the rest(restder from the
-// previous read). 
+// Takes two args: 
+// 1. int fd - represents the file descriptor of an open file
+// 2. char *rest - remaining content from the previous read.
 char	*ft_read_to_rest(int fd, char *rest)
 {
 	char	*buff;
@@ -38,10 +39,7 @@ char	*ft_read_to_rest(int fd, char *rest)
 	return (rest);
 }
 
-// Takes int fd representing the descriptor of the file from which the lines
-// will be read. Returns a pointer to a character array(string) containing the
-// next line read from the file, or NULL if the end of the file is reached or an
-// error occurs.
+// Reads one line at a time from a text file pointed to by the fd
 char	*get_next_line(int fd)
 {
 	char		*line;
@@ -57,42 +55,24 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// #include <fcntl.h>
+#include <fcntl.h>
 
-// int main(void)
-// {
-//     char *line;
-//     int fd1;
-//     int fd2;
-//     int fd3;
-//     int i = 1;
+int main(void)
+{
+    char *line;
+    int fd;
+    int i = 1;
 
-//     fd1 = open("test_txt/test1.txt", O_RDONLY);
-//     fd2 = open("test_txt/test2.txt", O_RDONLY);
-//     fd3 = open("test_txt/test3.txt", O_RDONLY);
+    fd = open("test_txt/test1.txt", O_RDONLY);
 
-//     while (i < 10)
-//     {
-// 		printf("\n");
-				
-//         line = get_next_line(fd1);
-//         printf("line [%02d] (fd1): %s", i, line);
-//         free(line);
+    while (i < 10)
+    {
+		line = get_next_line(fd);
+		printf("Line [%02d] (fd): %s", i, line);
+        i++;
+    }
 
-//         line = get_next_line(fd2);
-//         printf("line [%02d] (fd2): %s", i, line);
-//         free(line);
-
-//         line = get_next_line(fd3);
-//         printf("line [%02d] (fd3): %s\n\n", i, line);
-//         free(line);
-
-//         i++;
-//     }
-
-//     close(fd1);
-//     close(fd2);
-//     close(fd3);
-
-//     return (0);
-// }
+    close(fd);
+	
+    return (0);
+}
