@@ -1,5 +1,5 @@
-A B C D E F G H I J 
-ABCDEFGHIJ 
+@@@@@@@@@@
+before empty line
 
-AFTER_EMPTY_LINE
-LAST_LINE
+after empty line
+last full line

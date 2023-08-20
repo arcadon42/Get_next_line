@@ -6,7 +6,7 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:47:30 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/18 17:54:41 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/20 19:46:58 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int main(void)
     while (i < 10)
     {
 		line = get_next_line(fd);
-		printf("Line [%02d] (fd): %s", i, line);
+		printf("Line [%02d]: %s\n", i, line);
         i++;
     }
 
