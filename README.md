@@ -40,7 +40,7 @@ Helper functions used:
 3. ft_strjoin: Concatenates two strings.
 4. ft_get_line: Extracts a line from the 'rest'.
 5. ft_new_rest: Creates a new 'rest' after extracting a line.
-6. *ft_read_to_rest: Reads data from a file descriptor and appends it to the 'rest' buffer, which holds any leftover data from previous reads. This is the only helper function that located in get_next_line.c but not in get_next_line_utils.c.
+6. *ft_read_to_rest: Reads data from a file descriptor and appends it to the 'rest' buffer, which holds any leftover data from previous reads. This is a specific to 'get_next-line' logic helper function that located in get_next_line.c but not in get_next_line_utils.c.
 
 ## 🛠️ Use
 
