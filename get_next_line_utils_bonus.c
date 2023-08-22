@@ -6,29 +6,9 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 12:04:07 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/17 19:21:19 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/20 22:32:02 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// GET_LINE
-// ---------
-// Extracts the line (ending in either line break and `\0` or only `\0` in EOF)
-// from static variable.
-// PARAMETERS
-// Pointer to a *CSV from previous runs of get_next_line.
-// RETURN VALUES
-// The string with the full line ending in a line break (`\n`) + (`\0`).
-// -------------
-// NEW_rest
-// -------------
-// Stores in the *CSV the new updated variable with 
-// whatever is left from the original, minus the line extracted.
-// PARAMETERS
-// Pointer to the CSV from previous runs of get_next_line.
-// RETURN VALUES
-// The new updated string with whatever is left from the original static, minus
-// the extracted line.
-// *CSV - Cumulative Static Variable
 
 #include "get_next_line_bonus.h"
 

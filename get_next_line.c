@@ -6,15 +6,12 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:47:30 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/20 19:46:58 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/21 12:34:10 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// Takes two args: 
-// 1. int fd - represents the file descriptor of an open file
-// 2. char *rest - remaining content from the previous read.
 char	*ft_read_to_rest(int fd, char *rest)
 {
 	char	*buff;
@@ -39,7 +36,6 @@ char	*ft_read_to_rest(int fd, char *rest)
 	return (rest);
 }
 
-// Reads one line at a time from a text file pointed to by the fd
 char	*get_next_line(int fd)
 {
 	char		*line;
@@ -55,24 +51,24 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-#include <fcntl.h>
+// #include <fcntl.h>
 
-int main(void)
-{
-    char *line;
-    int fd;
-    int i = 1;
+// int main(void)
+// {
+//     char *line;
+//     int fd;
+//     int i = 1;
 
-    fd = open("test_txt/test1.txt", O_RDONLY);
+//     fd = open("test_txt/test1.txt", O_RDONLY);
 
-    while (i < 10)
-    {
-		line = get_next_line(fd);
-		printf("Line [%02d]: %s\n", i, line);
-        i++;
-    }
+//     while (i < 5)
+//     {
+//         printf("line [%02d] : %s\n", i, (line = get_next_line(fd)));
+//         free(line);
+//         i++;
+//     }
 
-    close(fd);
-	
-    return (0);
-}
+//     close(fd);
+
+//     return (0);
+// }

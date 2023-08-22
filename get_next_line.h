@@ -6,19 +6,19 @@
 /*   By: ameltsen <ameltsen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:37:57 by ameltsen          #+#    #+#             */
-/*   Updated: 2023/08/19 19:05:37 by ameltsen         ###   ########.fr       */
+/*   Updated: 2023/08/22 09:22:15 by ameltsen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
 # endif
 
 char	*get_next_line(int fd);
